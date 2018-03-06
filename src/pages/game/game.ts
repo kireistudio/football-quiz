@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Question } from '../../domain/question'
+import { Question } from '../../domain/question';
+import { Quiz } from '../../domain/quiz';
+import { QuizProvider } from '../../data/quiz-provider';
  
 @Component({
   selector: 'page-game',
@@ -8,19 +10,42 @@ import { Question } from '../../domain/question'
 })
 export class GamePage {
 
-  question: Question;
+  quiz: Quiz;
 
-  constructor(public navCtrl: NavController) {
-    debugger;
+  constructor(public navCtrl: NavController, public quizProvider: QuizProvider) {
 
-    this.question = new Question (
-      'https://dummyimage.com/800x600/000/fff?text=funciona', 
-      ['one', 'two', 'three','one', 'two', 'three','one', 'two', 'three','one', 'two', 'three']
-      ,'one');
+    //this.quiz = quizProvider.damelo();
+
+    var questions = [];
+        var question1 = new Question (
+        'https://dummyimage.com/800x600/000/fff?text=UNO', 
+        ['one', 'two', 'three']
+        ,'one');
+
+        var question2 = new Question (
+        'https://dummyimage.com/800x600/000/fff?text=DOS', 
+        ['aaa', 'bbb', 'ccc']
+        ,'bbb');
+
+        var question3 = new Question (
+        'https://dummyimage.com/800x600/000/fff?text=TRES', 
+        ['xxxxx', 'zzzzz', 'wwwww']
+        ,'xxxxx');
+
+        questions.push(question1);
+        questions.push(question2);
+        questions.push(question3);
+
+      this.quiz = new Quiz(questions);
   }
 
-  answeSelected(answer){
-    alert(this.question.isCorrect(answer));
+  answerSelected(answer){
+    alert(this.quiz.currentQuestion.isCorrect(answer));
+    this.quiz.answerCurrentQuestion(answer);
+
+    if(this.quiz.isFinished) {
+      alert(this.quiz.selectedAnswers);
+    }
   }
 
 }

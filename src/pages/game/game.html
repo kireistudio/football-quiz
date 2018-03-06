@@ -7,10 +7,10 @@
 <ion-content padding>
   <h2>Reto 1/10</h2>
 
-  <img src="{{question.image}}"/>
+  <img src="{{quiz.currentQuestion.image}}"/>
 
   <ion-list>
-    <button ion-item *ngFor="let answer of question.answers" (click)="answeSelected(answer)">
+    <button ion-item *ngFor="let answer of quiz.currentQuestion.answers" (click)="answerSelected(answer)">
       {{ answer }}
     </button>  
   </ion-list>
