@@ -1,0 +1,19 @@
+{
+    "questions": [
+        {
+            "image": "https://dummyimage.com/800x600/000/fff?text=UNO",
+            "answers": ["one", "two", "three"],
+            "correctAnswer": "two"
+        },
+        {
+            "image": "https://dummyimage.com/800x600/000/fff?text=DOS",
+            "answers": ["aaa", "bbb", "ccc"],
+            "correctAnswer": "bbb"
+        },
+        {
+            "image": "https://dummyimage.com/800x600/000/fff?text=TRES",
+            "answers": ["1", "2", "3"],
+            "correctAnswer": "3"
+        }
+    ]
+}
