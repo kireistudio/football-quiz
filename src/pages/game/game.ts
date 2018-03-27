@@ -13,8 +13,10 @@ export class GamePage {
   quiz: Quiz;
 
   constructor(public navCtrl: NavController, public quizProvider: QuizProvider) {
-
-    this.quiz = quizProvider.get();
+    this.quizProvider.get()
+    .then(result => {
+        this.quiz = result;
+    });
   }
 
   answerSelected(answer){
