@@ -16,8 +16,6 @@ export class QuizProvider {
         return new Promise(resolve => {
             this.http.get("https://raw.githubusercontent.com/kireistudio/football-quiz/master/src/data/quiz.json")
             .map(response => {
-
-                debugger;
                 let questions = [];
 
                 for(let question of (response as any).questions){
