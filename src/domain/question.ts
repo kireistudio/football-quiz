@@ -3,6 +3,7 @@ export class Question {
   private _image: string;
   private _answers: string[];
   private _correctAnswer: string;
+  private _selectedAnswer: string;
 
   constructor(image, answers, correctAnswer) {
     this._image = image;
@@ -22,7 +23,16 @@ export class Question {
     return this._correctAnswer ;
   }
 
+  answer(answer) {
+    this._selectedAnswer = answer;
+  }
+
   isCorrect(answer){
     return (answer === this._correctAnswer)
   }
+
+  isSelected(answer){
+    return (answer === this._selectedAnswer)
+  }
+
 }

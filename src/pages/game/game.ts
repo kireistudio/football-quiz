@@ -20,12 +20,18 @@ export class GamePage {
   }
 
   answerSelected(answer){
-    alert(this.quiz.currentQuestion.isCorrect(answer));
-    this.quiz.answerCurrentQuestion(answer);
+    
+    this.quiz.currentQuestion.answer(answer);
 
-    if(this.quiz.isFinished) {
-      alert(this.quiz.selectedAnswers);
-    }
+    setTimeout( () => {
+
+      alert(this.quiz.currentQuestion.isCorrect(answer));
+      this.quiz.answerCurrentQuestion(answer);
+    
+      if(this.quiz.isFinished) {
+        alert(this.quiz.selectedAnswers);
+      }
+
+     }, 3000 );
   }
-
 }

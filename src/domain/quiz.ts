@@ -30,6 +30,7 @@ export class Quiz {
   }
 
   answerCurrentQuestion(value) {
+    //this._currentQuestion.answer(value);
     this._selectedAnswers.push(this._currentQuestion.isCorrect(value));
     if(!this.isFinished){
       var currentIndex = this._questions.indexOf(this._currentQuestion);

@@ -10,7 +10,7 @@
   <img src="{{quiz?.currentQuestion.image}}"/>
 
   <ion-list>
-    <button ion-item *ngFor="let answer of quiz?.currentQuestion.answers" (click)="answerSelected(answer)" [color]="1==1 ? 'correct' : 'incorrect'">
+    <button ion-item *ngFor="let answer of quiz?.currentQuestion.answers" (click)="answerSelected(answer)" [color]="quiz?.currentQuestion.isSelected(answer) ? (quiz?.currentQuestion.isCorrect(answer) ? 'correct' : 'incorrect') : ''">
       {{ answer }}
     </button>
   </ion-list>
